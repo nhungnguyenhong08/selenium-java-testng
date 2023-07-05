@@ -1,5 +1,12 @@
 package javaTester;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.By.ByCssSelector;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class Topic_02_Data_Type {
@@ -38,7 +45,7 @@ public class Topic_02_Data_Type {
 		
 		
 		// Interface
-		webElement firstNameTextbox;
+		WebElement firstNameTextbox;
 		
 		// String
 		String firstName = "Automation Testing";
@@ -53,7 +60,7 @@ public class Topic_02_Data_Type {
 		List<WebElement> checkboxes = driver.findElements(By.cssSelector(""));
 		
 		//Map
-		Map<String, Interger> student = new HashMap<String, Interger>();
+		Map<String, Integer> student = new HashMap<String, Integer>();
 		
 	}
 
