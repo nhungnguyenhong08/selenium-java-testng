@@ -138,7 +138,7 @@ public class Topic_05_Web_Browser {
 		nav.forward();
 		nav.refresh();
 		
-		nav.to("https://www.facebook.com/");// to sẽ support cho history tốt hơn get cho (back/forward/refresh)
+		nav.to("https://www.facebook.com/");// "to" sẽ support cho history tốt hơn "get" cho (back/forward/refresh)
 		
 		driver.get("https://www.facebook.com/");// cách dùng thì dùng get nhiều hơn
 		
