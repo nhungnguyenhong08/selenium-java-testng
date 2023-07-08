@@ -36,9 +36,9 @@ public class Topic_05_Web_Browser {
 		driver = new FirefoxDriver();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		
-		// Tương tác với Browser thì sẽ thông qua biến WebDriver (Có thể đặt tên biên là Driver)
+		// Tương tác với Browser thì sẽ thông qua biến WebDriver (Có thể đặt tên biến là Driver)
 		
-		// Tương tác với Element thì sẽ thông qua biến WebElement (Có thể đặt tên biên là Element)
+		// Tương tác với Element thì sẽ thông qua biến WebElement (Có thể đặt tên biến là Element)
 	}
 
 	@Test
@@ -61,7 +61,7 @@ public class Topic_05_Web_Browser {
 		 emailTextbox.clear();
 		 emailTextbox.sendKeys("");
 		 
-		 // - Có thể sử dụng luôn (không cần tạo biến)
+		 // - Có thể sử dụng luôn (không cần tạo biến) - khi k sử dụng lại ở các step sau đó
 		 driver.findElement(By.xpath("//button[@id='login']")).click();
 		 driver.findElement(By.xpath("//input[@id='email']")).sendKeys("");
 		 
@@ -74,7 +74,7 @@ public class Topic_05_Web_Browser {
 		 
 		 // Click vào link: Tiếng Việt
 		 
-		 // Trả về Url của page hiệnt tại
+		 // Trả về Url của page hiện tại
 		 
 		 // - Có thể lưu nó vào 1 biến để sử dụng cho các step sau -> dùng lại nhiều lần
 		 String vietnamPageUrl = driver.getCurrentUrl();
@@ -116,7 +116,7 @@ public class Topic_05_Web_Browser {
 		 time.implicitlyWait(5000, TimeUnit.MILLISECONDS); 
 		 time.implicitlyWait(5000000, TimeUnit.MICROSECONDS); 
 		 
-		 // Khoảng thờigian chờ page load xong trong vòng x giây 
+		 // Khoảng thời gian chờ page load xong trong vòng x giây 
 		 time.pageLoadTimeout(5, TimeUnit.SECONDS);// x = 5 giây
 		 
 		 // Khoảng thời gian chờ script được thực thi xong trong vòng x giây
@@ -156,15 +156,6 @@ public class Topic_05_Web_Browser {
 		tar.window(""); //*
 	}
 
-	private boolean assertTrue(String pageSource, String contains) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	private String contains(String string) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Test
 	public void TC_02_() {

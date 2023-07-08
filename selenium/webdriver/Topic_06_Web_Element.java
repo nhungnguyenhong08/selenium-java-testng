@@ -37,7 +37,8 @@ public class Topic_06_Web_Element {
 
 	@Test
 	public void TC_00_Register() {
-		driver.get("");
+		// Mở trang web 
+		driver.get("https://www.nopcommerce.com/vi/login?returnUrl=%2Fvi%2Fdemo");
 		
 		driver.findElement(emailTextboxBy).sendKeys("");
 		driver.findElement(passwordTextboxBy).sendKeys("");
@@ -91,7 +92,7 @@ public class Topic_06_Web_Element {
 		driver.findElement(By.id("Email")).getTagName();
 		driver.findElement(By.name("Email")).getTagName();
 		
-		String emailTextboxTagname = driver.findElement(By.cssSelector("#Email")).getTagName();
+		String emailTextboxTagname = driver.findElement(By.cssSelector("#Email")).getTagName(); // thẻ imput
 		driver.findElement(By.xpath("//" + emailTextboxTagname+ "[@id='email']"));
 		
 		
