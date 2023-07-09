@@ -203,6 +203,6 @@ public class Topic_06_Web_Element_Part2 {
 	
 	@AfterClass
 	public void afterClass() {
-		//driver.quit();
+		driver.quit();
 	}
 }
