@@ -24,16 +24,19 @@ public class Topic_07_TextBox_TextArea {
 	String passportNumber = "4578-014-24-256";
 	String commentInput="The REAL data type provides 4 bytes\nof storage for numbers";
 
+		
+	
 	@BeforeClass
 	public void beforeClass() {
 		if (osName.contains("Windows")) {
-			System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
+			System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
 		} else {
-			System.setProperty("webdriver.gecko.driver", projectPath + "/browserDrivers/geckodriver");
+			System.setProperty("webdriver.chrome.driver", projectPath + "/browserDrivers/chromedriver");
 		}
+			
 		
+		driver = new ChromeDriver();
 		rand = new Random();
-		driver = new FirefoxDriver();
 		action = new Actions(driver);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		

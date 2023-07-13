@@ -25,12 +25,12 @@ public class Topic_06_Web_Element_Part1 {
 	@BeforeClass
 	public void beforeClass() {
 		if (osName.contains("Windows")) {
-			System.setProperty("webdriver.Chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
 		} else {
-			System.setProperty("webdriver.Chrome.driver", projectPath + "/browserDrivers/chromedriver");
+			System.setProperty("webdriver.chrome.driver", projectPath + "/browserDrivers/chromedriver");
 		}
 
-		driver = new ChromeDriver(); 
+		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		
 	}
@@ -38,7 +38,7 @@ public class Topic_06_Web_Element_Part1 {
 	@Test
 	public void TC_00_Register() {
 		// Mở trang web 
-		driver.get("https://www.nopcommerce.com/vi/login?returnUrl=%2Fvi%2Fdemo");
+		driver.get("https://demo.nopcommerce.com/login?returnUrl=%2F");
 		
 		driver.findElement(emailTextboxBy).sendKeys("");
 		driver.findElement(passwordTextboxBy).sendKeys("");
@@ -121,6 +121,6 @@ public class Topic_06_Web_Element_Part1 {
 
 	@AfterClass
 	public void afterClass() {
-		driver.quit();
+		////driver.quit();
 	}
 }

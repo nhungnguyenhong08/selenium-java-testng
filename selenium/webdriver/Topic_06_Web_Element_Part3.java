@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.By.ById;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
@@ -19,16 +20,18 @@ public class Topic_06_Web_Element_Part3 {
 	String osName = System.getProperty("os.name");
 	String emailAddress, firstName, lastName, password, fullName;
 
-	@BeforeClass
-	public void beforeClass() {
-		if (osName.contains("Windows")) {
-			System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
-		} else {
-			System.setProperty("webdriver.gecko.driver", projectPath + "/browserDrivers/geckodriver");
-		}
 		
+		@BeforeClass
+		public void beforeClass() {
+			if (osName.contains("Windows")) {
+				System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
+			} else {
+				System.setProperty("webdriver.chrome.driver", projectPath + "/browserDrivers/chromedriver");
+			}
+			
+			
 		rand = new Random();
-		driver = new FirefoxDriver();
+		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		
