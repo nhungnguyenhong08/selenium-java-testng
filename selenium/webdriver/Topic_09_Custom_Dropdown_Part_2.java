@@ -149,6 +149,7 @@ public class Topic_09_Custom_Dropdown_Part_2 {
 		// Đi kèm với tham số
 		// Nếu truyền chứng 1 giá trị vào trong hàm = vô nghĩa => Mình nên define để dùng đi dùng lại được nhiều lần
 	
+	// Hàm chọn 
 	public void selectItemInDropdown(String parentCSS, String allItems, String expectedTextItem ) {
 			// 1. Click vào 1 thẻ bất kì để làm sao cho nó xổ ra hết các item của dropdown
 			driver.findElement(By.cssSelector(parentCSS)).click();
@@ -183,7 +184,7 @@ public class Topic_09_Custom_Dropdown_Part_2 {
 	}
 
 
-		// Hàm chọn và nhập
+	// Hàm chọn và nhập
 	public void enterAndSelectItemInDropdown(String textboxCss, String allItems, String expectedTextItem ) {
 		// 1. Nhập expected text item vào -> xổ ra tất cả các item matching
 		driver.findElement(By.cssSelector(textboxCss)).clear();
