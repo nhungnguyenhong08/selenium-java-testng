@@ -136,7 +136,7 @@ public class Topic_10_Button_Radio_Checkbox {
 		unchecktoCheckbox(By.xpath("//label[text()='Dual-zone air conditioning']/preceding-sibling::input"));
 		
 		// Verify checkbox đã được bỏ chọn rồi
-			Assert.assertFalse(driver.findElement(By.xpath("//label[text()='Dual-zone air conditioning']/preceding-sibling::input")).isSelected());
+		Assert.assertFalse(driver.findElement(By.xpath("//label[text()='Dual-zone air conditioning']/preceding-sibling::input")).isSelected());
 
 	} 
 	@Test
