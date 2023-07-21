@@ -95,7 +95,7 @@ public class Topic_12_Alert {
 		driver.findElement(By.xpath("//button[text()='Click for JS Prompt']")).click();
 		sleepInSecond(3);
 		
-		// 2 - cần wait trước khi nào nó xuất hiện thìe mới switch qua và tương tác
+		// 2 - cần wait trước khi nào nó xuất hiện thì mới switch qua và tương tác
 		alert = explicitWait.until(ExpectedConditions.alertIsPresent());
 		
 		// Verify alert title đúng như mong đợi
