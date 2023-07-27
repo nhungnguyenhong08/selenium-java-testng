@@ -51,8 +51,8 @@ public class Topic_16_Popup_Random {
 	// Khi mà đóng nó lại thì có thể refresh trang nó hiện lên lại/hoặc là không
 	// Nếu như nó không hiển thị thì qua step tiếp theo luôn
 
-	@Test
-	public void TC_01_Random_In_DOM() {
+	//@Test
+	public void TC_01_Random_In_DOM_Java_Code_Geeks() {
 		driver.get("https://www.javacodegeeks.com/");
 		
 		sleepInSecond(30);
@@ -85,20 +85,61 @@ public class Topic_16_Popup_Random {
 			
 			Assert.assertEquals(driver.findElement(By.cssSelector("ul#posts-container>li:first-child>div>h2>a")).getText(), articleName);
 			
-			
-
 		}
 
 	//@Test
-	public void TC_02_Random_In_DOM() {
-    driver.get("https://www.facebook.com/");
+	public void TC_02_Random_In_DOM_Vnk_Edu() {
+    driver.get("https://vnk.edu.vn/");
+    sleepInSecond(40);
+    
+    By popup = By.cssSelector("div#tve_editor");
+    
+    if (driver.findElement(popup).isDisplayed()) {
+    	// Close popup này đi hoặc là click vào link xem lịch giảng dạy
+		driver.findElement(By.cssSelector("div.thrv_icon")).click();
+		sleepInSecond(3);
+    }
+	driver.findElement(By.xpath("//button[text()='Danh sách khóa học']")).click();
+	sleepInSecond(5);
+		
+	Assert.assertEquals(driver.getTitle(),"Lịch khai giảng các khóa học tại VNK EDU | VNK EDU");
 	
 		
 		} 
 
-	//@Test
-	public void TC_03_Random_Not_In_DOM() {
-    driver.get("https://www.facebook.com/");
+	@Test
+	public void TC_03_Random_Not_In_DOM_De_Hieu() {
+		 driver.get("https://dehieu.vn/");
+		    sleepInSecond(5);
+		    
+		    By popup = By.cssSelector("div.popup-content");
+		    
+		    
+		    driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		    
+		    // verify nếu popup hiển thị // isDisplayed()
+		    if (driver.findElements(popup).size()>0 && driver.findElements(popup).get(0).isDisplayed()) {
+				driver.findElement(By.id("popup-name")).sendKeys("Elon Musk");
+				driver.findElement(By.id("popup-email")).sendKeys(emailAddress);
+				driver.findElement(By.id("popup-phone")).sendKeys("0982541214");
+				sleepInSecond(3);
+				
+				driver.findElement(By.cssSelector("button#close-popup")).click();
+				sleepInSecond(3);
+				
+			}
+		    
+		   driver.findElement(By.xpath("//a[text()='Tất cả khóa học']")).click();
+		   sleepInSecond(3);
+		   
+		   String courseName = "Khóa học Thiết kế và Thi công Hệ thống BMS";
+		   driver.findElement(By.cssSelector("input#search-courses")).sendKeys(courseName);
+		   driver.findElement(By.cssSelector("button#search-course-button")).click();
+		   sleepInSecond(3);
+		   
+		   // Duy nhất 1 khóa học hiển thị
+		   Assert.assertEquals(driver.findElements(By.cssSelector("div.course-content ")).size(),1);
+		   Assert.assertEquals(driver.findElement(By.cssSelector("div.course-content h4")).getText(),courseName);
 		
 		} 
 	public void sleepInSecond(long timeInSecond) {
