@@ -51,6 +51,8 @@ public class Topic_17_Window_Tab {
 		driver.findElement(By.xpath("//a[text()='GOOGLE']")).click();
 		sleepInSecond(2);
 		
+		// Nếu như các ID nào mà khác với ID của parent thì switch
+		
 		switchToWindowByID(basicFormID);
 		
 		Assert.assertEquals(driver.getCurrentUrl(),"https://www.google.com.vn/");
@@ -61,8 +63,7 @@ public class Topic_17_Window_Tab {
 		
 		Assert.assertEquals(driver.getCurrentUrl(),"https://automationfc.github.io/basic-form/index.html");
 	}	
-		// Nếu như các ID nào mà khác với ID của parent thì switch
-		
+	
 	
 		// TODO Auto-generated method stub
 		
