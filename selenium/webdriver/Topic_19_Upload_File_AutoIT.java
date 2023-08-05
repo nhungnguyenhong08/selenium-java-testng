@@ -1,5 +1,6 @@
 package webdriver;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -15,7 +16,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class Topic_19_Upload_File {
+public class Topic_19_Upload_File_AutoIT {
 	WebDriver driver;
 	String projectPath = System.getProperty("user.dir");
 	String osName = System.getProperty("os.name");
@@ -31,7 +32,11 @@ public class Topic_19_Upload_File {
 	String computerFilePath = projectPath + "\\Upload\\" + computerFileName;
 	String mountainFilePath = projectPath + "\\Upload\\" + mountainFileName;
 
-	
+	String autoITFirefoxOneTimePath = projectPath +  "\\autoIT\\firefoxUploadOneTime.exe";
+	String autoITChromeOneTimePath = projectPath +  "\\autoIT\\chromeUploadOneTime.exe";
+	String autoITFirefoxMutipleTimePath = projectPath +  "\\autoIT\\firefoxUploadMultiple.exe";
+	String autoITChromeMultipleTimePath = projectPath +  "\\autoIT\\chromeUploadMultiple.exe";
+
 	@BeforeClass
 	public void beforeClass() {
 		if (osName.contains("Windows")) {
@@ -49,48 +54,54 @@ public class Topic_19_Upload_File {
 	}
 
 	//@Test
-	public void TC_01_One_File_Per_Time() {
+	public void TC_01_One_File_Per_Time() throws IOException {
 		driver.get("https://blueimp.github.io/jQuery-File-Upload/");
 		
+		
+		// Click để bật open file dialog lên
+		driver.findElement(By.cssSelector("span.btn-success")).click();
 		// Load file lên
-		driver.findElement(By.cssSelector("input[type='file']")).sendKeys(beachFilePath);
-		sleepInSecond(2);
-		driver.findElement(By.cssSelector("input[type='file']")).sendKeys(computerFilePath);
-		sleepInSecond(2);
-		driver.findElement(By.cssSelector("input[type='file']")).sendKeys(mountainFilePath);
-		sleepInSecond(2);
+		if (driver.toString().contains("firefox")) {
+			Runtime.getRuntime().exec(new String[] {autoITFirefoxOneTimePath, beachFilePath});
+
+		} else {
+			Runtime.getRuntime().exec(new String[] {autoITChromeOneTimePath, beachFilePath});
+
+		}
 		
 		// Verify file được load lên thành công
 		Assert.assertTrue(driver.findElement(By.xpath("//p[text()='" + beachFileName + "' and @class='name']")).isDisplayed());
-		Assert.assertTrue(driver.findElement(By.xpath("//p[text()='" + computerFileName + "' and @class='name']")).isDisplayed());
-		Assert.assertTrue(driver.findElement(By.xpath("//p[text()='" + mountainFileName + "' and @class='name']")).isDisplayed());
-
+		
 		// Click upload
 		List<WebElement> buttonUpload =	driver.findElements(By.cssSelector("table button.start"));
 		for (WebElement button : buttonUpload) {
 			button.click();
-			sleepInSecond(2);	
+			sleepInSecond(5);	
 		}
 	
 		// Verify upload thành công (link)
 		Assert.assertTrue(driver.findElement(By.xpath("//a[text()='" + beachFileName + "']")).isDisplayed());
-		Assert.assertTrue(driver.findElement(By.xpath("//a[text()='" + computerFileName + "']")).isDisplayed());
-		Assert.assertTrue(driver.findElement(By.xpath("//a[text()='" + mountainFileName + "']")).isDisplayed());
-
+		
 		// Verify upload thành công (image)
 		Assert.assertTrue(isImageLoaded("//img[contains(@src,'" + beachFileName + "')]"));
-		Assert.assertTrue(isImageLoaded("//img[contains(@src,'" + computerFileName + "')]"));
-		Assert.assertTrue(isImageLoaded("//img[contains(@src,'" + mountainFileName + "')]"));
-	
+		
 	}
 
 	@Test
-	public void TC_02_Multiple_File_Per_Time() {
+	public void TC_02_Multiple_File_Per_Time() throws IOException {
 		driver.get("https://blueimp.github.io/jQuery-File-Upload/");
 		
+		
+		// Click để bật open file dialog lên
+		driver.findElement(By.cssSelector("span.btn-success")).click();
 		// Load file lên
-		driver.findElement(By.cssSelector("input[type='file']")).sendKeys(beachFilePath + "\n" + computerFilePath + "\n" + mountainFilePath);
-		sleepInSecond(2);
+		if (driver.toString().contains("firefox")) {
+			Runtime.getRuntime().exec(new String[] {autoITFirefoxMutipleTimePath, beachFilePath, computerFilePath, mountainFilePath});
+
+		} else {
+			Runtime.getRuntime().exec(new String[] {autoITChromeMultipleTimePath, beachFilePath, computerFilePath, mountainFilePath});
+
+		}
 		
 		
 		// Verify file được load lên thành công
