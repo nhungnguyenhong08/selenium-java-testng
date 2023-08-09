@@ -26,7 +26,6 @@ public class Topic_19_Upload_File_AutoIT {
 	String beachFileName ="beach.jpg";
 	String computerFileName ="computer.jpg";
 	String mountainFileName ="mountain.jpg";
-	String tabletFileName ="tablet.jpg";
 	
 	String beachFilePath = projectPath + "\\Upload\\" + beachFileName;
 	String computerFilePath = projectPath + "\\Upload\\" + computerFileName;
