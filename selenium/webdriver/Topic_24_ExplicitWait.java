@@ -156,11 +156,6 @@ public class Topic_24_ExplicitWait {
 		Assert.assertTrue(explicitWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='" + beachFileName + "']//parent::a//parent::div//following-sibling::div//button[contains(@class,'filesContentOptionPlay')]"))).isDisplayed());
 		Assert.assertTrue(explicitWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='" + computerFileName + "']//parent::a//parent::div//following-sibling::div//button[contains(@class,'filesContentOptionPlay')]"))).isDisplayed());
 		Assert.assertTrue(explicitWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='" + mountainFileName + "']//parent::a//parent::div//following-sibling::div//button[contains(@class,'filesContentOptionPlay')]"))).isDisplayed());
-
-		
-		
-		
-		
 		
 	}
 	
