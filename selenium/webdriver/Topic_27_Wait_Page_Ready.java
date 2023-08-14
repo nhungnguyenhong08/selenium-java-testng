@@ -105,7 +105,7 @@ public class Topic_27_Wait_Page_Ready {
 			
 		}
 	}
-	public boolean waitForAjacBussyLoadingInvisible() {
+	public boolean waitForAjacBusyLoadingInvisible() {
 		return explicitWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div#ajaxBusy")));
 	}
 	public boolean isPageLoadedSuccess() {
