@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite parallel="tests" name="Suite" thread-count="3">
-
+<listeners>
+<listener class-name ="listener.ExtentReportListener" />
+</listeners>
 <!--     <groups>-->
 <!--      		<run>-->
 <!--      			<include name = "admin"></include>-->
@@ -17,22 +19,22 @@
   	<!-- Local-->
   	<parameter name = "browser" value = "firefox" />   
       <classes>
-       	<class name ="TestNG.Topic_06_Parameter_Enviroment" />
+       	<class name ="TestNG.Topic_09_Listener" />
       </classes>
   </test> 
   
-   <test name="Run on Chrome">   
-  	<parameter name = "browser" value = "chrome" />   
-      <classes>
-       	<class name ="TestNG.Topic_06_Parameter_Enviroment" />
-      </classes>
-  </test> 
-  
-   <test name="Run on Edge">   
-  	<parameter name = "browser" value = "edge" />   
-      <classes>
-       	<class name ="TestNG.Topic_06_Parameter_Enviroment" />
-      </classes>
-  </test> 
+<!--   <test name="Run on Chrome">   -->
+<!--  	<parameter name = "browser" value = "chrome" />   -->
+<!--      <classes>-->
+<!--       	<class name ="TestNG.Topic_06_Parameter_Enviroment" />-->
+<!--      </classes>-->
+<!--  </test> -->
+<!--  -->
+<!--   <test name="Run on Edge">   -->
+<!--  	<parameter name = "browser" value = "edge" />   -->
+<!--      <classes>-->
+<!--       	<class name ="TestNG.Topic_06_Parameter_Enviroment" />-->
+<!--      </classes>-->
+<!--  </test> -->
   
 </suite> 
